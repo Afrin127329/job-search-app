@@ -1,9 +1,6 @@
 import { Redirect } from "expo-router";
 import React from "react";
-
-type RedirectProps = {
-  href: string;
-};
+import { RedirectProps } from "../shared/types";
 
 export default function Index() {
   const redirectProps: RedirectProps = {
