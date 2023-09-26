@@ -1,11 +1,34 @@
-import { Redirect } from "expo-router";
-import React from "react";
-import { RedirectProps } from "../shared/types";
+import { Stack, useRouter } from "expo-router";
+import { useState } from "react";
+import { SafeAreaView, ScrollView, View } from "react-native";
 
-export default function Index() {
-  const redirectProps: RedirectProps = {
-    href: "/home",
-  };
+import { COLORS, SIZES } from "../constants";
 
-  return <Redirect {...redirectProps} />;
-}
+const Home = () => {
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+      <Stack.Screen
+        options={{
+          headerStyle: { backgroundColor: COLORS.lightWhite },
+          headerShadowVisible: false,
+
+          headerTitle: "",
+        }}
+      />
+
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View
+          style={{
+            flex: 1,
+            padding: SIZES.medium,
+          }}
+        ></View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+export default Home;
