@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-export const PopularJobs = () => {
-  return (
-    <div>PopularJobs</div>
-  )
-}
+const PopularJobs = () => {
+  return <div>PopularJobs</div>;
+};
+
+export default PopularJobs;
