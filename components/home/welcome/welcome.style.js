@@ -2,11 +2,9 @@ import { StyleSheet } from "react-native";
 
 import { COLORS, FONT, SIZES } from "../../../constants";
 
-type tab = Function;
-
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    width: "100%"
   },
   userName: {
     fontFamily: FONT.regular,
@@ -58,17 +56,17 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: SIZES.medium,
   },
-  //   tab: (activeJobType: string, item: string) => ({
-  //     paddingVertical: SIZES.small / 2,
-  //     paddingHorizontal: SIZES.small,
-  //     borderRadius: SIZES.medium,
-  //     borderWidth: 1,
-  //     borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
-  //   }),
-  //   tabText: (activeJobType: string, item: string) => ({
-  //     fontFamily: FONT.medium,
-  //     color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
-  //   }),
+  tab: (activeJobType, item) => ({
+    paddingVertical: SIZES.small / 2,
+    paddingHorizontal: SIZES.small,
+    borderRadius: SIZES.medium,
+    borderWidth: 1,
+    borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
+  }),
+  tabText: (activeJobType, item) => ({
+    fontFamily: FONT.medium,
+    color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
+  }),
 });
 
 export default styles;
