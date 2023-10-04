@@ -1,7 +1,6 @@
 import { Stack, useRouter } from "expo-router";
 import { useState } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
-
 import { COLORS, SIZES } from "../constants";
 
 const Home = () => {
