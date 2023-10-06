@@ -1,5 +1,5 @@
 {
-  "name": "job-search-mobile-app",
+  "name": "job-search-app",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.72.4",
+    "react-native": "0.72.5",
     "react-native-dotenv": "^3.4.9",
     "react-native-gesture-handler": "~2.12.0",
     "react-native-reanimated": "~3.3.0",
