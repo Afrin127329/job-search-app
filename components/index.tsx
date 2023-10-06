@@ -1,6 +1,6 @@
 // home screen
-import Nearbyjobs from "./home/nearby/Nearbyjobs";
+import NearbyJobs from "./home/nearby/NearbyJobs";
 import PopularJobs from "./home/popular/PopularJobs";
 import Welcome from "./home/welcome/Welcome";
 
-export { Nearbyjobs, PopularJobs, Welcome };
+export { NearbyJobs, PopularJobs, Welcome };

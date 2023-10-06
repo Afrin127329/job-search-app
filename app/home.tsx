@@ -1,6 +1,6 @@
 import { Stack, useRouter } from "expo-router";
 import { SafeAreaView, ScrollView, View } from "react-native";
-import { Nearbyjobs, PopularJobs, Welcome } from "../components";
+import { NearbyJobs, PopularJobs, Welcome } from "../components";
 import { COLORS, SIZES, icons, images } from "../constants";
 import ScreenHeaderBtn from "../shared/header/ScreenHeaderBtn";
 
@@ -45,7 +45,7 @@ const Home = () => {
         >
           <Welcome />
           <PopularJobs />
-          <Nearbyjobs />
+          <NearbyJobs />
         </View>
       </ScrollView>
     </SafeAreaView>
