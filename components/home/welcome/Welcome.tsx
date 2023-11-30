@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, TextInput, View } from "react-native";
+import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { icons } from "../../../constants";
 import styles from "./welcome.style";
 
 const Welcome = () => {
@@ -15,6 +16,14 @@ const Welcome = () => {
         <View style={styles.searchWrapper}>
           <TextInput style={styles.searchInput} />
         </View>
+
+        <TouchableOpacity style={styles.searchBtn}>
+          <Image
+            style={styles.searchBtnImage}
+            source={icons.search}
+            resizeMode="contain"
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
