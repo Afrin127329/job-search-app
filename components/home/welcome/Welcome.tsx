@@ -3,6 +3,8 @@ import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { icons } from "../../../constants";
 import styles from "./welcome.style";
 
+const jobTypes = ["Full-time", "Part-time", "Contractual"];
+
 const Welcome = () => {
   // const router = useRouter();
   return (
@@ -14,16 +16,32 @@ const Welcome = () => {
 
       <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
-          <TextInput style={styles.searchInput} />
+          <TextInput
+            style={styles.searchInput}
+            value=""
+            placeholder="Search your dream job here!"
+            onChange={() => {}}
+          />
         </View>
 
         <TouchableOpacity style={styles.searchBtn}>
           <Image
-            style={styles.searchBtnImage}
             source={icons.search}
             resizeMode="contain"
+            style={styles.searchBtnImage}
           />
         </TouchableOpacity>
+      </View>
+
+      <View style={styles.tabsContainer}>
+        {/* <FlatList
+          data={jobTypes}
+          renderItem={({ item }) => (
+            <TouchableOpacity>
+              <Text>{item}</Text>
+            </TouchableOpacity>
+          )}
+        /> */}
       </View>
     </View>
   );
