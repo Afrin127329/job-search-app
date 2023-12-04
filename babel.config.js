@@ -12,7 +12,7 @@ module.exports = function (api) {
         "blacklist": null,
         "whitelist": null,
         "safe": false,
-        "allowUndefined": true
+        // "allowUndefined": true
       }]
     ],
   };

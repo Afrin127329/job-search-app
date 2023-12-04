@@ -7,3 +7,9 @@ export type jobItem = {
   selectedJob?: Boolean;
   handleCardPress?: () => void;
 };
+
+export type SearchQuery = {
+  query: string;
+  page: string;
+  num_pages: string;
+};
