@@ -10,6 +10,6 @@ export type jobItem = {
 
 export type SearchQuery = {
   query: string;
-  page: string;
-  num_pages: string;
+  page?: string | number;
+  num_pages: string | number;
 };

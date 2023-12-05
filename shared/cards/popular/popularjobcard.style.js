@@ -2,13 +2,8 @@ import { StyleSheet } from "react-native";
 
 import { COLORS, FONT, SHADOWS, SIZES } from "../../../constants";
 
-type Props = {
-  selectedJob: String;
-  item: String;
-};
-
 const styles = StyleSheet.create({
-  container: (selectedJob: Props, item: Props) => ({
+  container: (selectedJob, item) => ({
     width: 250,
     padding: SIZES.xLarge,
     backgroundColor: selectedJob === item.job_id ? COLORS.primary : "#FFF",

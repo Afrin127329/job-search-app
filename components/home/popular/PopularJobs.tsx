@@ -8,13 +8,20 @@ import {
   View,
 } from "react-native";
 import { COLORS, SIZES } from "../../../constants";
+import { useFetch } from "../../../hooks/useFetch";
 import PopularJobCard from "../../../shared/cards/popular/PopularJobCard";
 import styles from "./popularjobs.style";
 
 const PopularJobs = () => {
   const router = useRouter();
-  const isLoading = false;
-  const error = false;
+  const { data, loading, err } = useFetch("search", {
+    query: "React Developer",
+    page: 1,
+    num_pages: 1,
+  });
+
+  console.log(data);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -25,15 +32,15 @@ const PopularJobs = () => {
       </View>
 
       <View style={styles.cardsContainer}>
-        {isLoading ? (
+        {loading ? (
           <ActivityIndicator size="large" color={COLORS.primary} />
-        ) : error ? (
+        ) : err ? (
           <Text>Something went Wrong!</Text>
         ) : (
           <FlatList
-            data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+            data={data}
             renderItem={({ item }) => <PopularJobCard item={item} />}
-            keyExtractor={(item) => item?.toString()}
+            keyExtractor={(item: any) => item?.job_id}
             contentContainerStyle={{ columnGap: SIZES.medium }}
             horizontal
           />
