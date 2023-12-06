@@ -2,6 +2,17 @@ import { StyleSheet } from "react-native";
 
 import { COLORS, FONT, SHADOWS, SIZES } from "../../../constants";
 
+// interface StyleProps {
+//   selectedJob?: boolean | undefined;
+//   item?: any;
+// }
+
+// interface StyleSheetType {
+//   container?: ViewStyle | TextStyle;
+// }
+
+// type StylesFunctionProps = (props: StyleProps) => StyleSheetType;
+
 const styles = StyleSheet.create({
   container: (selectedJob, item) => ({
     width: 250,
