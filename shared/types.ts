@@ -13,3 +13,8 @@ export type SearchQuery = {
   page?: string | number;
   num_pages: string | number;
 };
+
+export type NearbyJobType = {
+  job?: object;
+  handleNavigate?: () => void;
+};
