@@ -15,6 +15,10 @@ export type SearchQuery = {
 };
 
 export type NearbyJobType = {
-  job?: object;
+  job: {
+    employer_logo: string;
+    job_title: string;
+    job_employment_type: string;
+  };
   handleNavigate?: () => void;
 };
