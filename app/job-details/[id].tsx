@@ -1,12 +1,92 @@
-import { Text } from "react-native";
-// import { Stack, useRouter, useSearchParams } from 'expo-router';
-// import { useCallback, useState } from 'react';
+import { Stack, useLocalSearchParams, useRouter } from "expo-router";
+import { useState } from "react";
+import {
+  ActivityIndicator,
+  RefreshControl,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 
-// import { Company, JobAbout, JobFooter, JobTabs, Specifics } from '../../components';
-// import ScreenHeaderBtn from '../../shared/header/ScreenHeaderBtn';
+import {
+  Company,
+  JobAbout,
+  JobFooter,
+  JobTabs,
+  Specifics,
+} from "../../components";
+import { COLORS, SIZES, icons } from "../../constants";
+import { useFetch } from "../../hooks/useFetch";
+import ScreenHeaderBtn from "../../shared/header/ScreenHeaderBtn";
 
 const JobDetails = () => {
-  return <Text>Job Details</Text>;
+  const params = useLocalSearchParams();
+  const router = useRouter();
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = () => {};
+  const { data, loading, err, refetch } = useFetch("job-details", {
+    job_id: params.id,
+  });
+
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+      <Stack.Screen
+        options={{
+          headerStyle: { backgroundColor: COLORS.lightWhite },
+          headerShadowVisible: false,
+          headerBackVisible: false,
+          headerLeft: () => (
+            <ScreenHeaderBtn
+              iconUrl={icons.left}
+              dimension="60%"
+              handlePress={() => router.back()}
+            />
+          ),
+          headerRight: () => (
+            <ScreenHeaderBtn
+              iconUrl={icons.share}
+              dimension="60%"
+              handlePress={() => router.back()}
+            />
+          ),
+          headerTitle: "",
+        }}
+      />
+
+      <>
+        <ScrollView
+          showsHorizontalScrollIndicator={false}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
+          {loading ? (
+            <ActivityIndicator size="large" color={COLORS.primary} />
+          ) : err ? (
+            <Text>Something Went Wrong!</Text>
+          ) : data.length === 0 ? (
+            <Text>No Data to Show!</Text>
+          ) : (
+            <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
+              <Company
+                companyLogo={data[0].employer_logo}
+                jobTitle={data[0].job_title}
+                companyName={data[0].employer_name}
+                location={data[0].job_country}
+              />
+
+              <JobTabs />
+              <Specifics />
+              <JobAbout />
+              <JobFooter />
+            </View>
+          )}
+        </ScrollView>
+      </>
+    </SafeAreaView>
+  );
 };
 
 export default JobDetails;
