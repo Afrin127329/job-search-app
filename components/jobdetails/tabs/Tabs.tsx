@@ -1,6 +1,6 @@
 import React from "react";
 
-const Tabs = () => {
+const Tabs = ({ tabs, setActiveTab, activeTab }) => {
   return <div>Tabs</div>;
 };
 

@@ -20,10 +20,13 @@ import { COLORS, SIZES, icons } from "../../constants";
 import { useFetch } from "../../hooks/useFetch";
 import ScreenHeaderBtn from "../../shared/header/ScreenHeaderBtn";
 
+const tabs = ["About", "Qualifications", "Responsibilities"];
+
 const JobDetails = () => {
   const params = useLocalSearchParams();
   const router = useRouter();
   const [refreshing, setRefreshing] = useState(false);
+  const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const onRefresh = () => {};
   const { data, loading, err, refetch } = useFetch("job-details", {
@@ -77,7 +80,11 @@ const JobDetails = () => {
                 location={data[0].job_country}
               />
 
-              <JobTabs />
+              <JobTabs
+                tabs={tabs}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
               <Specifics />
               <JobAbout />
               <JobFooter />
