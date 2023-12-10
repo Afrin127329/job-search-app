@@ -30,3 +30,9 @@ export type companyProps = {
   companyName: string;
   location: string;
 };
+
+export type tabProps = {
+  tabs: string[];
+  activeTab: string;
+  setActiveTab: () => void;
+};
