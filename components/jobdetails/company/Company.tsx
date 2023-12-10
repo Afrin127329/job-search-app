@@ -1,11 +1,17 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
 
-import { icons } from "../../../constants";
+// import { icons } from "../../../constants";
 import { checkImageURL } from "../../../shared/checkImageURL";
+import { companyProps } from "../../../shared/types";
 import styles from "./company.style";
 
-const Company = ({ companyLogo, jobTitle, companyName, location }) => {
+const Company = ({
+  companyLogo,
+  jobTitle,
+  companyName,
+  location,
+}: companyProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.logoBox}>
@@ -15,24 +21,8 @@ const Company = ({ companyLogo, jobTitle, companyName, location }) => {
               ? companyLogo
               : "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg",
           }}
-          style={styles.logoImage}
         />
-      </View>
-
-      <View style={styles.jobTitleBox}>
-        <Text style={styles.jobTitle}>{jobTitle}</Text>
-      </View>
-
-      <View style={styles.companyInfoBox}>
-        <Text style={styles.companyName}>{companyName} / </Text>
-        <View style={styles.locationBox}>
-          <Image
-            source={icons.location}
-            resizeMode="contain"
-            style={styles.locationImage}
-          />
-          <Text style={styles.locationName}>{location}</Text>
-        </View>
+        <Text>Hello</Text>
       </View>
     </View>
   );

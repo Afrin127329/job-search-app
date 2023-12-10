@@ -23,3 +23,10 @@ export type NearbyJobType = {
   };
   handleNavigate?: () => void;
 };
+
+export type companyProps = {
+  companyLogo: string;
+  jobTitle: string;
+  companyName: string;
+  location: string;
+};
