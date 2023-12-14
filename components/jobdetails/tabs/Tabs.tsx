@@ -1,13 +1,8 @@
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, View } from "react-native";
+import { SIZES } from "../../../constants";
+import TabButton from "../../../shared/tabs/tabButton";
+import { tabProps } from "../../../shared/types";
 import styles from "./tabs.style";
-// import { SIZES } from '../../../constants';
-import { tabButtonProps, tabProps } from "../../../shared/types";
-
-const TabButton = ({ name, activeTab, onHandleSearchType }: tabButtonProps) => (
-  <TouchableOpacity>
-    <Text>{name}</Text>
-  </TouchableOpacity>
-);
 
 const Tabs = ({ tabs, setActiveTab, activeTab }: tabProps) => {
   return (
@@ -21,6 +16,10 @@ const Tabs = ({ tabs, setActiveTab, activeTab }: tabProps) => {
             onHandleSearchType={() => setActiveTab(item)}
           />
         )}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={(item) => item}
+        contentContainerStyle={{ columnGap: SIZES.small / 2 }}
       />
     </View>
   );
