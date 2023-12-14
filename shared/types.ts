@@ -36,3 +36,9 @@ export type tabProps = {
   activeTab: string;
   setActiveTab: () => void;
 };
+
+export type tabButtonProps = {
+  name: string;
+  activeTab: string;
+  onHandleSearchType: () => void;
+};
