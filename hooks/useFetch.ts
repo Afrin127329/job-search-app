@@ -9,7 +9,7 @@ const rapidApiKey = RAPID_API_KEY;
 export const useFetch = (endpoint: string, query: SearchQuery) => {
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState(null);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any[]>([]);
 
   const options = {
     method: "GET",

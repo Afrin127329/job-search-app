@@ -29,6 +29,22 @@ const JobDetails = () => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const onRefresh = () => {};
+
+  const displayTabContent = () => {
+    switch (activeTab) {
+      case "Qualifications":
+        return (
+          <Specifics
+            title="Qualifications"
+            points={data[0].job_highlights?.qualifications ?? ["N/A"]}
+          />
+        );
+
+      default:
+        break;
+    }
+  };
+
   const { data, loading, err, refetch } = useFetch("job-details", {
     job_id: params.id,
   });
@@ -85,6 +101,10 @@ const JobDetails = () => {
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
               />
+
+              {/* Displaying Tab contents as a functions */}
+              {displayTabContent()}
+
               <Specifics />
               <JobAbout />
               <JobFooter />

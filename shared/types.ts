@@ -1,3 +1,5 @@
+import React from "react";
+
 export type RedirectProps = {
   href: string;
 };
@@ -31,11 +33,11 @@ export type companyProps = {
   location: string;
 };
 
-export type tabProps = {
+export interface tabProps {
   tabs: string[];
   activeTab: string;
-  setActiveTab: () => void;
-};
+  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
+}
 
 export type tabButtonProps = {
   name: string;
