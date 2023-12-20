@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
-// import axios from 'axios';
 import { RAPID_API_KEY } from "@env";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { SearchQuery } from "../shared/types";
 
 const rapidApiKey = RAPID_API_KEY;
@@ -10,6 +9,9 @@ export const useFetch = (endpoint: string, query: SearchQuery) => {
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState(null);
   const [data, setData] = useState<any[]>([]);
+
+  // console.log(data);
+  // console.log(RAPID_API_KEY);
 
   const options = {
     method: "GET",

@@ -9,13 +9,7 @@ import {
   View,
 } from "react-native";
 
-import {
-  Company,
-  JobAbout,
-  JobFooter,
-  JobTabs,
-  Specifics,
-} from "../../components";
+import { Company, JobTabs, Specifics } from "../../components";
 import { COLORS, SIZES, icons } from "../../constants";
 import { useFetch } from "../../hooks/useFetch";
 import ScreenHeaderBtn from "../../shared/header/ScreenHeaderBtn";
@@ -36,9 +30,12 @@ const JobDetails = () => {
         return (
           <Specifics
             title="Qualifications"
-            points={data[0].job_highlights?.qualifications ?? ["N/A"]}
+            points={data[0].job_highlights?.Qualifications ?? ["N/A"]}
           />
         );
+
+      case "About":
+      case "Responsibilities":
 
       default:
         break;
@@ -105,9 +102,9 @@ const JobDetails = () => {
               {/* Displaying Tab contents as a functions */}
               {displayTabContent()}
 
-              <Specifics />
+              {/* <Specifics />
               <JobAbout />
-              <JobFooter />
+              <JobFooter /> */}
             </View>
           )}
         </ScrollView>
