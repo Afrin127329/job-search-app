@@ -9,7 +9,13 @@ import {
   View,
 } from "react-native";
 
-import { Company, JobTabs, Specifics } from "../../components";
+import {
+  Company,
+  JobAbout,
+  JobFooter,
+  JobTabs,
+  Specifics,
+} from "../../components";
 import { COLORS, SIZES, icons } from "../../constants";
 import { useFetch } from "../../hooks/useFetch";
 import ScreenHeaderBtn from "../../shared/header/ScreenHeaderBtn";
@@ -33,10 +39,15 @@ const JobDetails = () => {
             points={data[0].job_highlights?.Qualifications ?? ["N/A"]}
           />
         );
-
       case "About":
+        return <JobAbout info={data[0].job_description ?? "No Description!"} />;
       case "Responsibilities":
-
+        return (
+          <Specifics
+            title="Responsibilities"
+            points={data[0].job_highlights?.Responsibilities ?? ["N/A"]}
+          />
+        );
       default:
         break;
     }
@@ -101,13 +112,16 @@ const JobDetails = () => {
 
               {/* Displaying Tab contents as a functions */}
               {displayTabContent()}
-
-              {/* <Specifics />
-              <JobAbout />
-              <JobFooter /> */}
             </View>
           )}
         </ScrollView>
+
+        <JobFooter
+          url={
+            data[0]?.job_google_link ??
+            "https://careers.google.com/jobs/results"
+          }
+        />
       </>
     </SafeAreaView>
   );
