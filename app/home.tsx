@@ -1,4 +1,5 @@
 import { Stack, useRouter } from "expo-router";
+import { useState } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
 import { NearbyJobs, PopularJobs, Welcome } from "../components";
 import { COLORS, SIZES, icons, images } from "../constants";
@@ -6,7 +7,7 @@ import ScreenHeaderBtn from "../shared/header/ScreenHeaderBtn";
 
 const Home = () => {
   const router = useRouter();
-  // const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handlePress = () => {
     router.push("/search");
@@ -43,7 +44,15 @@ const Home = () => {
             padding: SIZES.medium,
           }}
         >
-          <Welcome />
+          <Welcome
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            handleClick={() => {
+              if (searchTerm) {
+                router.push(`/search/${searchTerm}`);
+              }
+            }}
+          />
           <PopularJobs />
           <NearbyJobs />
         </View>

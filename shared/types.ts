@@ -44,3 +44,9 @@ export type tabButtonProps = {
   activeTab: string;
   onHandleSearchType: () => void;
 };
+
+export interface welcomeSearch {
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  handleClick: () => void;
+}
