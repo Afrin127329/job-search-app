@@ -11,7 +11,7 @@ export type jobItem = {
 };
 
 export type SearchQuery = {
-  query?: string;
+  query?: string | string[];
   page?: string | number;
   num_pages?: string | number;
   job_id?: string | number | string[];
