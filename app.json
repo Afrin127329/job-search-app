@@ -8,6 +8,26 @@
       "expo-router"
     ],
     "name": "job-search-mobile-app",
-    "slug": "job-search-mobile-app"
+    "slug": "job-search-mobile-app",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a612e5f2-551e-49dc-aad1-5bd7e8ac97eb"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a612e5f2-551e-49dc-aad1-5bd7e8ac97eb"
+    },
+    "android": {
+      "package": "com.afrin127329.jobsearchmobileapp"
+    },
+    "ios": {
+      "bundleIdentifier": "com.afrin127329.jobsearchmobileapp"
+    }
   }
 }
