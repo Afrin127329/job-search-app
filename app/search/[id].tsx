@@ -29,9 +29,7 @@ const JobSearch = () => {
   const { data, loading, err } = useFetch("search", options);
 
   const handleSearch = () => {
-    setSearchLoader(true);
-    setSearchResult([]);
-
+    setSearchLoader(loading);
     if (data) {
       setSearchResult(data);
       setSearchLoader(false);
@@ -39,6 +37,7 @@ const JobSearch = () => {
       setSearchError(err);
     } else {
       setSearchLoader(loading);
+      setSearchResult([]);
     }
   };
 
@@ -54,7 +53,8 @@ const JobSearch = () => {
 
   useEffect(() => {
     handleSearch();
-  }, []);
+    console.log(searchResult);
+  }, [data, page]);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
@@ -82,7 +82,10 @@ const JobSearch = () => {
           />
         )}
         keyExtractor={(item: any) => item.job_id}
-        contentContainerStyle={{ padding: SIZES.medium, rowGap: SIZES.medium }}
+        contentContainerStyle={{
+          padding: SIZES.medium,
+          rowGap: SIZES.medium,
+        }}
         ListHeaderComponent={() => (
           <>
             <View style={styles.container}>
@@ -90,7 +93,7 @@ const JobSearch = () => {
               <Text style={styles.noOfSearchedJobs}>Job Opportunities</Text>
             </View>
             <View style={styles.loaderContainer}>
-              {searchLoader ? (
+              {loading ? (
                 <ActivityIndicator size="large" color={COLORS.primary} />
               ) : (
                 searchError && <Text>Oops something went wrong</Text>
