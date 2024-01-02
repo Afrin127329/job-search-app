@@ -26,7 +26,7 @@ const JobSearch = () => {
     query: params.id,
     page: page.toString(),
   };
-  const { data, loading, err } = useFetch("search", options);
+  const { data, loading, err, refetch } = useFetch("search", options);
 
   const handleSearch = () => {
     setSearchLoader(loading);
@@ -44,10 +44,12 @@ const JobSearch = () => {
   const handlePagination = (direction: string) => {
     if (direction === "left" && page > 1) {
       setPage(page - 1);
-      handleSearch();
+      setSearchResult([]);
+      refetch();
     } else if (direction === "right") {
       setPage(page + 1);
-      handleSearch();
+      setSearchResult([]);
+      refetch();
     }
   };
 
