@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -14,11 +14,17 @@ import styles from "./popularjobs.style";
 
 const PopularJobs = () => {
   const router = useRouter();
+  const [selectedJob, setSelectedJob] = useState();
   const { data, loading, err } = useFetch("search", {
     query: "React Developer",
     page: 1,
     num_pages: 1,
   });
+
+  const handleCardPress = (item: any) => {
+    router.push(`/job-details/${item.job_id}`);
+    setSelectedJob(item.job_id);
+  };
 
   // console.log(data);
 
@@ -39,7 +45,13 @@ const PopularJobs = () => {
         ) : (
           <FlatList
             data={data}
-            renderItem={({ item }) => <PopularJobCard item={item} />}
+            renderItem={({ item }) => (
+              <PopularJobCard
+                item={item}
+                selectedJob={selectedJob}
+                handleCardPress={handleCardPress}
+              />
+            )}
             keyExtractor={(item: any) => item?.job_id}
             contentContainerStyle={{ columnGap: SIZES.medium }}
             horizontal

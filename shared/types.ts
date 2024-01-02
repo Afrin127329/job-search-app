@@ -6,8 +6,8 @@ export type RedirectProps = {
 
 export type jobItem = {
   item: any;
-  selectedJob?: Boolean;
-  handleCardPress?: () => void;
+  selectedJob: Boolean | undefined;
+  handleCardPress?: (item: any) => void;
 };
 
 export type SearchQuery = {
