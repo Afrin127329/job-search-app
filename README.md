@@ -39,6 +39,35 @@
 
 ![QR code for IOS](assets/jsearch2-ios.png)
 
+## Local set up on Desktop
+
+1. You need node installed globally on your local machine
+2. Login/Signup to Rapid API hub and open the following link:
+
+   ```
+   https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch
+   ```
+
+3. Create .env file on root directory and add your private api key there, after that, add the following variable:
+   - RAPID_API_KEY
+4. Open up terminal and run the following command
+
+```
+git clone git@github.com:Afrin127329/job-search-app.git
+```
+
+5. Download packages with the following command
+
+   ```
+   npm install
+   ```
+
+6. Run
+
+```
+ npm start or yarn start
+```
+
 ## Authors
 
 **Afrin Nahar**
