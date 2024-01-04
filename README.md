@@ -1,6 +1,6 @@
 # Job Search Application
 
-## A complete React Native Job Search mobile application with the integration of JSearch api from Rapid API
+## A complete React Native Job Search mobile application with the integration of JSearch API from Rapid API
 
 **_Functionalities of the Application_**
 
@@ -30,6 +30,14 @@
 ## Test the App
 
 1. Download Expo go app in your Android/IOS device.
+
+### For Android device, Scan the Following QR Code in Expo Go App
+
+![QR code for Android](assets/jsearch1-android.png)
+
+### For IOS device, Scan the Following QR Code in Expo Go App
+
+![QR code for IOS](assets/jsearch2-ios.png)
 
 ## Authors
 
